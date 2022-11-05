@@ -1,26 +1,25 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="note.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="note.css" />
     <title>Note</title>
-</head>
-<body>
-    <div class=""container>
-        <h1>NOTE:</h1>
-        <ul>
-            <li><a href="./Home.html"></a>Home</li>
-            <li><a href="./Login.html"></a>Login</li>
-            <li><a href="./Register.html"></a>Register
+  </head>
+  <body>
+    <div class="" container>
+      <h1>NOTE:</h1>
+      <ul>
+        <li><a href="./Home.html"></a>Home</li>
+        <li><a href="./Login.html"></a>Login</li>
+        <li><a href="./Register.html"></a>Register</li>
+      </ul>
 
-        </ul>
-        <form action="actionpage">
-            <textarea name="note" id="Note" cols="30" rows="10"></textarea>
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
-        
+      <form id="noteForm" action="actionpage">
+        <input type="text" id="note" name="note" id="Note" />
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
     </div>
-    
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
