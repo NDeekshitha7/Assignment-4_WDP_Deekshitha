@@ -1,3 +1,11 @@
+// getUsers button
+
+function getUsers() {
+  fetch("http://localhost:3000/users/")
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
+}
 const login = document.getElementById("login-page");
 const register = document.getElementById("register-Form");
 const note = document.getElementById("noteForm");
@@ -98,4 +106,24 @@ function notepageFunction(e) {
 
   const Userl = new User(note);
   console.log(Userl);
+}
+
+const user_btn = document.getElementById("btn-users");
+if (user_btn) user_btn.addEventListener("click", getUsers);
+
+const note_btn = document.getElementById("note-users");
+if (note_btn) note_btn.addEventListener("click", getNote);
+
+function getUsers() {
+  fetch("http://localhost:3000/user/")
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
+}
+
+function getNote() {
+  fetch("http://localhost:3000/note/")
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
 }

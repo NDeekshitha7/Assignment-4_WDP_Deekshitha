@@ -1,4 +1,4 @@
-<html lang="en">
+<!DOCTYPE html>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,11 +15,22 @@
         <li><a href="./Register.html"></a>Register</li>
       </ul>
 
-      <form id="noteForm" action="actionpage">
-        <input type="text" id="note" name="note" id="Note" />
+      <form id="noteForm">
+        <input type="text" id="note" name="notes" id="Note" />
         <button type="submit" class="submit-btn">Submit</button>
       </form>
     </div>
-    <script src="main.js"></script>
+    <button
+          style="
+            font-size: 20px;
+            display: block;
+            width: fit-content;
+            margin: auto;
+          "
+          id="note-users"
+        >
+          Get All Users
+        </button>
+    <script src="script/main.js"></script>
   </body>
 </html>
