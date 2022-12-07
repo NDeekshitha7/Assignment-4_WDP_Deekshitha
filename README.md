@@ -1,4 +1,6 @@
 Note Making
+![er](https://user-images.githubusercontent.com/115596359/206101283-1c95edee-c652-4f52-89e6-ad6eaf1d8f8d.png)
+
 ![er](https://user-images.githubusercontent.com/115596359/206101036-b9844bbe-16d8-4a5e-a6d8-2dedcc9ebf7f.png)
 
 HTML is the language for describing the structure of Web pages. HTML gives authors the means to: Publish online documents with headings, text, tables, lists, photos, etc. Retrieve online information via hypertext links, at the click of a button.
