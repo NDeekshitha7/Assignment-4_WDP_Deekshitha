@@ -1,46 +1,42 @@
 const express = require('express');
-const note = require('../models/note');
+const User = require('../models/note');
 const router = express.Router();
-
 router
-  .get('/', async (req, res) => {
+.post('/getnote', async (req, res) => {
     try {
-      const notes = await note.getAllnote();
-      res.send(notes);
+      let noteget = await User.getnote(req.body);
+      res.send(noteget)
     } catch(err) {
       res.status(401).send({message: err.message});
     }
   })
 
-
-  .post('/register', async (req, res) => {
+  .post('/creatingnote', async (req, res) => {
     try {
-      let note = await note.register(req.body);
-      res.send({...note, password: undefined})
+      let notecreates = await User.creatingnote(req.body);
+      res.send(notecreates)
     } catch(err) {
       res.status(401).send({message: err.message});
     }
   })
+  
 
-  .put('/edit', async (req, res) => {
+  .post('/deletingnote', async (req, res) => {
     try {
-      let note = await note.editnote(req.body);
-      res.send({...note, password: undefined});
+      let noteupdates = await User.deletingnote(req.body);
+      res.send(noteupdates)
     } catch(err) {
-      res.status(401).send({message: err.message})
+      res.status(401).send({message: err.message});
     }
   })
-
-  .delete('/delete', async (req, res) => {
+  .post('/editingnote', async (req, res) => {
     try {
-      User.deletenote(req.body);
-      res.send({success: "We'll Miss You... :("})
+      let noteedit= await User.editingnote(req.body);
+      res.send(noteedit)
     } catch(err) {
-      res.status(401).send({message: err.message})
+      res.status(401).send({message: err.message});
     }
   })
-
-
 
   
-module.exports = router;
+module.exports=router;
