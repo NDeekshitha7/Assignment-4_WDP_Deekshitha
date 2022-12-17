@@ -1,0 +1,55 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/login.css" />
+    <title>LogInForm</title>
+  </head>
+  <body>
+    <div class="Home">
+      <br />
+      <h1>Welcome to State Bank</h1>
+      <nav>
+        <a href="Register.html">Register</a>
+        <a href="Home.html">Home</a>
+      </nav>
+      <div class="form-box">
+        <form id="login-page" class="login">
+          <h2>Log In</h2>
+          <label for="Username">User name:</label>
+          <input type="text" id="Username" name="username" />
+          <br /><br />
+          <label for="Password">Password:</label>
+          <input type="password" id="Password" name="password" />
+          <br /><br />
+          <input type="checkbox" class="check-box" /><span
+            >Remember Password</span
+          >
+          <br /><br />
+          <button type="submit" class="submit-btn">Log In</button>
+        </form>
+        <button
+          style="
+            font-size: 20px;
+            display: block;
+            width: fit-content;
+            margin: auto;
+          "
+          id="btn-users"
+        >
+          Get All Users
+        </button>
+      </div>
+    </div>
+    <section class="flex-container">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+      <div class="box4"></div>
+      <div class="box5"></div>
+    </section>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="fetch.js"></script>
+  </body>
+</html>
