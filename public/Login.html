@@ -3,25 +3,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="./styles/login.css" />
     <title>LogInForm</title>
   </head>
   <body>
     <div class="Home">
       <br />
       <h1>Welcome to State Bank</h1>
-      <ul>
-        <li><a href="Register.html"></a>Register</li>
-        <li><a href="Home.html"></a>Home</li>
-      </ul>
+      <nav>
+        <a href="Register.html">Register</a>
+        <a href="Home.html">Home</a>
+      </nav>
       <div class="form-box">
         <form id="login-page" class="login">
           <h2>Log In</h2>
-          <label for="username">User name:</label>
-          <input type="text" id="username" name="username" />
+          <label for="Username">User name:</label>
+          <input type="text" id="Username" name="username" />
           <br /><br />
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" />
+          <label for="Password">Password:</label>
+          <input type="password" id="Password" name="password" />
           <br /><br />
           <input type="checkbox" class="check-box" /><span
             >Remember Password</span
@@ -49,6 +49,7 @@
       <div class="box4"></div>
       <div class="box5"></div>
     </section>
-    <script src="script/main.js"></script>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="fetch.js"></script>
   </body>
 </html>
