@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Register.css" />
+    <link rel="stylesheet" href="styles/Register.css" />
     <title>RegisterForm</title>
   </head>
   <body>
@@ -11,23 +11,23 @@
       <form id="register-Form" action="action_page.php">
         <section class="flex-container">
           <h1>Register</h1>
-          <ul>
-            <li><a href="./login.html"></a>LogIn</li>
-            <li><a href="./Home.html"></a>Home</li>
-          </ul>
+          <nav>
+            <a href="./login.html">LogIn</a>
+            <li><a href="./Home.html">Home</a>
+          </nav>
 
-          <label for="fname">First Name:</label>
-          <input type="text" id="fname" name="fname" />
+          <label for="Firstname">First Name:</label>
+          <input type="text" id="Firstname" name="fname" />
           <br /><br />
 
-          <label for="lname">Last Name:</label>
-          <input type="text" id="Lname" name="lname" />
+          <label for="Lastname">Last Name:</label>
+          <input type="text" id="Lastname" name="lname" />
           <br /><br />
-          <label for="username">User Name:</label>
-          <input type="text" id="email" name="username" />
+          <label for="Username">User Name:</label>
+          <input type="text" id="Username" name="Username" />
           <br /><br />
-          <label for="password">Password:</label>
-          <input type="password" id="passwd" name="password" />
+          <label for="Password">Password:</label>
+          <input type="password" id="Password" name="password" />
           <br /><br />
           <input type="checkbox" class="check-box" /><span
             >I Agree to the conditions</span
@@ -38,6 +38,7 @@
         </section>
       </form>
     </div>
-    <script src="script/main.js"></script>
+    <script  type="module" src="main.js"></script>
+    <script type="module" src="fetch.js"></script>
   </body>
 </html>
