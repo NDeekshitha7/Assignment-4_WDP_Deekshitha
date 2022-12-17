@@ -3,22 +3,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="note.css" />
+    <link rel="stylesheet" href="styles/note.css" />
     <title>Note</title>
   </head>
   <body>
     <div class="" container>
       <h1>NOTE:</h1>
-      <ul>
-        <li><a href="./Home.html"></a>Home</li>
-        <li><a href="./Login.html"></a>Login</li>
-        <li><a href="./Register.html"></a>Register</li>
-      </ul>
+      <nav>
+        <a href="./Home.html">Home</a>
+        <a href="./Login.html">Login</a>
+        <a href="./Register.html">Register</a>
+      </nav>
 
-      <form id="noteForm">
-        <input type="text" id="note" name="notes" id="Note" />
-        <button type="submit" class="submit-btn">Submit</button>
+    
+
+      <form action="#final" id="noteForm">
+        <textarea id="notecontent" name="notes" rows="20" cols="175"></textarea>      
+        <button type="notebutton" name="notebutton" onclick="alert('Note added')">Add Note</button>
       </form>
+    
     </div>
     <button
           style="
@@ -31,6 +34,7 @@
         >
           Get All Users
         </button>
-    <script src="script/main.js"></script>
+        <script  type="module" src="main.js"></script>
+        <script  type="module" src="fetch.js"></script>
   </body>
 </html>
