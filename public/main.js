@@ -1,110 +1,202 @@
-// getUsers button
-document.getElementById("btn-users").addEventListener("click", getUsers);
+import { fetchData, setCurrentUser, setCurrentNote,getCurrentUser, getCurrentNote } from "./fetch.js";
 
-function getUsers() {
-  fetch("http://localhost:3000/users/")
-    .then((res) => res.json())
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err));
-}
+
 const login = document.getElementById("login-page");
 const register = document.getElementById("register-Form");
 const note = document.getElementById("noteForm");
 
 if (login) login.addEventListener("submit", loginpageFunction);
 if (register) register.addEventListener("submit", registerpageFunction);
-if (note) note.addEventListener("submit", notepageFunction);
+// if (note) note.addEventListener("submit", notepageFunction);
+
+
+
+class User1 {
+  constructor(Username1, Password1) {
+    this.Username = Username1;
+    this.Password = Password1;
+  }
+
+  getUsername() {
+    return this.Username;
+  }
+  setUsername(Username) {
+    this.Username = Username;
+  }
+  getPassword() {
+    return this.Password;
+  }
+  setPassword(Password) {
+    this.Password = Password;
+  }
+}
 
 function loginpageFunction(e) {
   e.preventDefault();
-  let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
+  let Username = document.getElementById("Username").value;
+  let Password = document.getElementById("Password").value;
 
-  class User {
-    constructor(username, password) {
-      this.uname = username;
-      this.pword = password;
-    }
+  const Userl2 = new User1(Username, Password);
+  console.log(Userl2);
+  fetchData("/users/login", Userl2, "POST")
+  .then((data) => {
+    setCurrentUser(data);
+    window.location.href = "note.html";
+  })
+  .catch((err) => {
+    let p = document.querySelector('.error');
+    p.innerHTML = err.message;
+  }) 
 
-    getuname() {
-      return this.uname;
-    }
-    setuname(newusername) {
-      this.uname = username;
-    }
-    getpword() {
-      return this.pword;
-    }
-    setpword(newpassword) {
-      this.pword = password;
-    }
-  }
-
-  const Userl = new User(username, password);
-  console.log(Userl);
 }
+
+
+function getUsers() {
+  fetch("http://localhost:3000/users/")
+   .then((res)=> res.json())
+   .then((data) => console.log(data))
+   .catch((err)=> console.log(err))
+ }
+
 
 function registerpageFunction(e) {
   e.preventDefault();
-  let fname = document.getElementById("fname").value;
-  let lname = document.getElementById("Lname").value;
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("passwd").value;
+  let Firstname = document.getElementById("Firstname").value;
+  let Lastname = document.getElementById("Lastname").value;
+  let Username = document.getElementById("Username").value;
+  let Password = document.getElementById("Password").value;
 
   class User {
-    constructor(fname, lname, email, password) {
-      this.firstname = fname;
-      this.lastname = lname;
-      this.email = email;
-      this.password = password;
+    constructor(Firstname1, Lastname1, Username1, Password1) {
+      this.Firstname = Firstname1;
+      this.Lastname = Lastname1;
+      this.Username = Username1;
+      this.Password = Password1;
     }
-    getemail() {
-      return this.email;
+    getUsername() {
+      return this.Username;
     }
-    setemail(newemail) {
-      this.email = newemail;
+    setUsername(Username1) {
+      this.Username =Username1 ;
     }
-    getpassword() {
-      return this.password;
+    getPassword() {
+      return this.Password;
     }
-    setpassword(newpassword) {
-      this.password = newpassword;
+    setPassword(Password1) {
+      this.Password = Password1;
     }
-    getfirstname() {
-      return this.firstname;
+    getFirstname() {
+      return this.Firstname;
     }
-    setfirstname(newfirstname) {
-      this.firstname = newfirstname;
+    setFirstname(Firstname1) {
+      this.Firstname =Firstname1 ;
     }
-    getlastname() {
-      return this.lastname;
+    getLastname() {
+      return this.Lastname;
     }
-    setlastname(newlastname) {
-      this.lastname = newlastname;
+    setLastname(Lastname1) {
+      this.Lastname = Lastname1;
     }
   }
 
-  const user1 = new User(fname, lname, email, password);
+  const user1 = new User(Firstname, Lastname, Username, Password);
   console.log(user1);
+
+  fetchData("/users/register", user1, "POST")
+  .then((data) => {
+    setCurrentUser(data);
+    window.location.href = "note.html";
+  })
+  .catch((err) =>{
+    let p = document.querySelector('.error');
+    p.innerHTML = err.message;
+  })
+
 }
 
-function notepageFunction(e) {
-  e.preventDefault();
-  let note = document.getElementById("note").value;
-
-  class User {
-    constructor(note) {
-      this.tnotes = note;
-    }
-
-    gettnotes() {
-      return this.tnotes;
-    }
-    settnotes(note) {
-      this.tnotes = note;
-    }
+class User {
+  constructor(note) {
+    this.note = note;
   }
 
-  const Userl = new User(note);
-  console.log(Userl);
+  getnote() {
+    return this.note;
+  }
+  setnote(note) {
+    this.note = note;
+  }
 }
+
+let user = getCurrentUser();
+const note2=document.getElementById("noteForm");
+if(note2) note2.addEventListener('submit',funnote)
+
+function funnote(e)
+{
+  e.preventDefault()
+  
+  
+
+  
+  let note1=document.getElementById("note").value;
+  const user1=new User(note);
+  console.log(user1);
+
+
+
+
+
+
+  user1.userID = user.userID;
+
+    fetchData("/notes/creatingnote", user1 , "POST")
+
+  .then((data) => {
+
+    setCurrentUser(data);
+
+    console.log(data);
+
+   
+
+  })
+
+  .catch((err) =>{
+
+    let p = document.querySelector('.error');
+
+    p.innerHTML = err.message;
+
+  })
+
+  window.location.reload();
+
+}
+
+
+// const usersBtn=document.getElementById("users-btn");
+
+// if(usersBtn)usersBtn.addEventListener('click',getUsers);
+
+
+
+
+// const notesBtn=document.getElementById("notes-btn");
+// if(notesBtn)notesBtn.addEventListener('click',getNotes);
+
+
+if(user && note2) getNotes();
+function getNotes(){
+  let note1= document.getElementById("note");
+  fetchData("/notes/getnote",user,"POST")
+  .then((data) => {
+    console.log(data);
+ for(let i=0;i<data.length;i++){
+ note1.value='\n'+data[i].note
+ }
+
+    })
+      .catch((err)=>console.log(`Error! ${err}`));
+
+window.location.href="note.html";
+ }
