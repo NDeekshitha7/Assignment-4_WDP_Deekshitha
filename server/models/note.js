@@ -33,7 +33,7 @@ const con = require("./db_connect");
   
   async function creatingnote(note){
   
-    let sql=`INSERT INTO notes (userID,notecontent) VALUES ("${note.userID}", "${note.notecontent}");`
+    let sql=`INSERT INTO notes (userID,notedescription) VALUES ("${note.userID}", "${note.notedescription}");`
   
   let data=await con.query(sql);
   
