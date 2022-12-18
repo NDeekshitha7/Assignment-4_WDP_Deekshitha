@@ -61,10 +61,10 @@ function getUsers() {
 
 function registerpageFunction(e) {
   e.preventDefault();
-  let Firstname = document.getElementById("Firstname").value;
-  let Lastname = document.getElementById("Lastname").value;
-  let Username = document.getElementById("Username").value;
-  let Password = document.getElementById("Password").value;
+  let Firstname2 = document.getElementById("Firstname").value;
+  let Lastname2 = document.getElementById("Lastname").value;
+  let Username2= document.getElementById("Username").value;
+  let Password2= document.getElementById("Password").value;
 
   class User {
     constructor(Firstname1, Lastname1, Username1, Password1) {
@@ -99,7 +99,7 @@ function registerpageFunction(e) {
     }
   }
 
-  const user1 = new User(Firstname, Lastname, Username, Password);
+  const user1 = new User(Firstname2, Lastname2, Username2, Password2);
   console.log(user1);
 
   fetchData("/users/register", user1, "POST")
@@ -114,16 +114,16 @@ function registerpageFunction(e) {
 
 }
 
-class User {
+class User2 {
   constructor(note) {
-    this.note = note;
+    this.notedescription = note;
   }
 
-  getnote() {
+  getnotedescription() {
     return this.note;
   }
-  setnote(note) {
-    this.note = note;
+  setnotedescription(note) {
+    this.notedescription = note;
   }
 }
 
@@ -138,8 +138,8 @@ function funnote(e)
   
 
   
-  let note1=document.getElementById("note").value;
-  const user1=new User(note);
+  let note1=document.getElementById("notedescription").value;
+  const user1=new User2(note1);
   console.log(user1);
 
 
@@ -187,12 +187,12 @@ function funnote(e)
 
 if(user && note2) getNotes();
 function getNotes(){
-  let note1= document.getElementById("note");
+  let note1= document.getElementById("notedescription");
   fetchData("/notes/getnote",user,"POST")
   .then((data) => {
     console.log(data);
  for(let i=0;i<data.length;i++){
- note1.value='\n'+data[i].note
+ note1.value='\n'+data[i].notedescription
  }
 
     })
